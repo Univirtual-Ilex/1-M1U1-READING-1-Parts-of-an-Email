@@ -1,0 +1,1 @@
+export { default, Tooltip2 } from './Tooltip'
