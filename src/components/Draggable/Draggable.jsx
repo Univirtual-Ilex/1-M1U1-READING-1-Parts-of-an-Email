@@ -39,6 +39,9 @@ const Draggable_base = React.forwardRef(({ areaDrag, audio, name, target, elemen
                 // console.log(ref[0].current.dataset.target)
             },
             onDragEnd: function (e) {
+
+                /* Se comenta la iteración para que el elemento no genere error */
+                /*
                 ref.forEach(item => {
                     if(item.current.id === target) {
                         if (!this.hitTest(item.current)) {
@@ -52,7 +55,8 @@ const Draggable_base = React.forwardRef(({ areaDrag, audio, name, target, elemen
                         
                         return item
                     }
-                })
+                }) 
+                */
             }
         })
     } , [areaDrag, target, ref, elementId, info])
@@ -61,7 +65,7 @@ const Draggable_base = React.forwardRef(({ areaDrag, audio, name, target, elemen
     return (
         <div {...props} ref={itemDraggable}>
             <div className='draggable' >
-            <span>{ name }</span>
+            <span>{ props.children }</span>
             </div>
 
         </div>

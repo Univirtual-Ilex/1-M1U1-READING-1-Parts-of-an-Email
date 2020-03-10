@@ -2,7 +2,7 @@
 //Import
 import React from 'react'
 import styled from 'styled-components'
-import styles, {tooltip2} from './Tooltip_styles'
+import styles, {tooltip2, tooltip3} from './Tooltip_styles'
 /**
  * 
  * noclose:Boolean = Define si está el botón de cerrar o no
@@ -13,6 +13,17 @@ import styles, {tooltip2} from './Tooltip_styles'
  * visible:Boolean = Define la visibilidad del tooltip
  * 
  */
+
+// Componente Base tooltip Tipo2
+const Tooltip3_base = ({visible, closebtn, fz, w, pos, noclose, ttmessage,x,y,maxwidth, ...props}) => {
+
+    return (
+        <div {...props}>   
+            {props.children}
+            <span className="tt">{ttmessage}</span>            
+        </div>
+    )
+}
 
 // Componente base
 const Tooltip_base = ({visible, closebtn, fz, w, pos, noclose, ...props}) => {
@@ -27,5 +38,6 @@ const Tooltip_base = ({visible, closebtn, fz, w, pos, noclose, ...props}) => {
 }
 const Tooltip = styled(Tooltip_base)`${ styles }`
 export const Tooltip2 = styled(Tooltip)`${ tooltip2 }`
+export const Tooltip3 = styled(Tooltip3_base)`${ tooltip3 }`
 
 export default Tooltip

@@ -51,10 +51,12 @@ const App = () => {
   return(
     <>
       <Gstyle/>
-      <Fondo degradado={Ilex.degradado('-30deg',Ilex.rosa,Ilex.azul,Ilex.violeta)}>
+      <Fondo degradado={Ilex.degradado('-30deg',Ilex.verde,Ilex.verde,Ilex.azul)}>
         <BrowserRouter>
           <Route path='/' exact component={Home} />
-          <Route path='/actividad1' component={Actividad1} />          
+          <Route path='/actividad1' component={Actividad1} />
+          <Route path='/actividad2' component={Actividad2} />
+          <Route path='/actividad3' component={Actividad3} />
         </BrowserRouter>
 
       </Fondo>

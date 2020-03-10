@@ -14,9 +14,11 @@ const Home_base = function ({ staticContext, ...props}) { // se le pasan las pro
 
                     <div className='bloque-izquierdo'>
                         <div className='bloque-izquierdo-container'>
-                            <h1> ¡ I love the food at the Galpon! </h1>
+                            <h1> Parts of an email </h1>
                             <p>
-                            Listen to the conversations. Read the sentences and put them in their corresponding boxes according to the audios.</p>
+                            Analyze the e-mail and drag the information to the empty format to order the parts of it.
+                            </p>
+                            <p className="negrilla">¡Time to practice your reading skill!</p>
                             <ButtonLink to='/actividad1'>Start</ButtonLink>
                         </div>
                     </div>

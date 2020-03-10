@@ -22,6 +22,15 @@ button{
         background-color: ${Ilex.violeta2};
         color:#fff;
         border:2px solid #fff;
+        a{
+            color:#fff;
+        }
+    }
+    a{
+        text-decoration:none;
+        &:active,&:link{
+            color:#fff;
+        }
     }
 }
 

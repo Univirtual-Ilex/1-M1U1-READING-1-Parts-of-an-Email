@@ -1,22 +1,23 @@
 import { css } from 'styled-components'
 import Ilex from '../../App/variables'
 const styles = css`
-
-    width: 20.20em;
-    height: 26em;
+    display:inline-block;
+    position:absolute;
     background-color: ${Ilex.dragItem};
-    background-image: url('src/estado_vacio.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size:30% auto;
-    border-radius: 1em;
-    border: 2px dashed ${Ilex.bordeGris};
-    padding: 1em;
-    margin:0.8em 0.5em 0 0.5em;
-    h3{
-        color: ${Ilex.grisOscuro};
-        text-transform: uppercase;
-        text-align: center;
+    width:10em;
+    height:2em;
+    box-shadow:3px 2px 3px 0 rgba(0,0,0,0.1);
+    ${ props => props.x || props.y ? `transform:translate(${ props.x || 0}em,${ props.y || 0}em)` : ``};
+    &::before{
+        content:"";
+        position:absolute;
+        width:1em;
+        height:1em;
+        background-color:${Ilex.dragItem};
+        left:-.3em;
+        top:0.50em;
+        transform:rotate(45deg);
+        
     }
 `
 
