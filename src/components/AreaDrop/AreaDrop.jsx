@@ -2,7 +2,7 @@
 //Import
 import React from 'react'
 import styled from 'styled-components'
-import styles from './AreaDrop_styles'
+import styles,{ areaDrop2styles } from './AreaDrop_styles'
 
 // Componente base
 const AreaDrop_base = React.forwardRef(({title, ...props}, ref) => {
@@ -16,4 +16,5 @@ const AreaDrop_base = React.forwardRef(({title, ...props}, ref) => {
     )
 })
 const AreaDrop = styled(AreaDrop_base)`${ styles }`
+export const AreaDrop2 = styled(AreaDrop_base)`${ areaDrop2styles }`
 export default AreaDrop

@@ -1,1 +1,1 @@
-export { default } from './AreaDrop'
+export { default, AreaDrop2 } from './AreaDrop'

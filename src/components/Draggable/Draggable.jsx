@@ -1,11 +1,10 @@
 //Import
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import styles from './Draggable_styles'
+import styles,{draggable2styles} from './Draggable_styles'
 //import BocinaButton from '../BocinaButton'
 import { gsap, TweenLite } from 'gsap'
 import { Draggable} from 'gsap/Draggable'
-
 // Componente base
 // Es un draggable con drop target
 // PROPS
@@ -19,7 +18,7 @@ import { Draggable} from 'gsap/Draggable'
  * ref: Recibe la referencia o el conjunto de referencias html del elemento al que apuntará como droppable
  */
 
-const Draggable_base = React.forwardRef(({ areaDrag, audio, name, target, elementId, info, ...props }, ref ) => {
+const Draggable_base = React.forwardRef(({ areaDrag, dropto, audio, name, target, elementId, info, ...props }, ref ) => {
     
     const itemDraggable = useRef()
     useEffect ( () => {
@@ -74,5 +73,5 @@ const Draggable_base = React.forwardRef(({ areaDrag, audio, name, target, elemen
 })
 
 const DraggableItem = styled(Draggable_base)`${ styles }`
-
+export const DraggableItem2 = styled(Draggable_base)`${draggable2styles}`
 export default DraggableItem

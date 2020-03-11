@@ -16,4 +16,8 @@ const styles = css`
     position:relative;
 
 `
+
+export const draggable2styles = css`
+
+`
 export default styles

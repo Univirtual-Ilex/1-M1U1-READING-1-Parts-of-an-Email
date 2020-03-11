@@ -10,7 +10,7 @@ const ButtonCheck_base = ({link, text, ...props}) => {
     return (
         <div {...props}>
             <button className='btn-clean'>
-                {link ? <Link to={link}> { text} </Link> : text}
+                {link ? <Link to={link} > { text} </Link> : text}
             </button>
         </div>
     )
