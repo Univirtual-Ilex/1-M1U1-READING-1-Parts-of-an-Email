@@ -20,7 +20,7 @@ const Tooltip3_base = ({visible, closebtn, fz, w, pos, noclose, ttmessage,x,y,ma
     return (
         <div {...props}>   
             {props.children}
-            <span className="tt">{ttmessage}</span>            
+            <span className={"tt " + visible}>{ttmessage}</span>            
         </div>
     )
 }

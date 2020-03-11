@@ -61,6 +61,12 @@ const mistyles = css`
         padding:0.25em 0;
         }
     }
+    .attach{
+        left:50em;
+        top:10em;
+        height: 2em;
+        width: 2em;
+    }
 }
 .pestanaCheck{
     position: absolute;

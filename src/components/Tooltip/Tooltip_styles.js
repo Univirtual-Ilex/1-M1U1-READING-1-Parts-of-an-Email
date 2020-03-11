@@ -39,7 +39,7 @@ position: relative;
 .tt{
     position:absolute;
     background-color:${Ilex.dragItem};
-    display: inline-block;
+    display: none;
     width:max-content;
     ${ props => props.maxwidth ? `max-width: ${props.maxwidth || '10'}em` : ``};
     padding: 0.5em;
@@ -62,7 +62,11 @@ position: relative;
         transform:rotate(45deg);
         
     }
+    
 
+}
+.selected{
+    display: inline-block;
 }
 
 `

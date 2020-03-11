@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import styles,{draggable2styles} from './Draggable_styles'
 //import BocinaButton from '../BocinaButton'
-import { gsap, TweenLite } from 'gsap'
+import { gsap, TweenMax } from 'gsap'
 import { Draggable} from 'gsap/Draggable'
 // Componente base
 // Es un draggable con drop target
@@ -18,7 +18,7 @@ import { Draggable} from 'gsap/Draggable'
  * ref: Recibe la referencia o el conjunto de referencias html del elemento al que apuntará como droppable
  */
 
-const Draggable_base = React.forwardRef(({ areaDrag, dropto, audio, name, target, elementId, info, ...props }, ref ) => {
+const Draggable_base = React.forwardRef(({areaDrag, name, target, elementId, status,setStatus,idArr, draggable, info, ...props }, ref ) => {
     
     const itemDraggable = useRef()
     useEffect ( () => {
@@ -38,24 +38,29 @@ const Draggable_base = React.forwardRef(({ areaDrag, dropto, audio, name, target
                 // console.log(ref[0].current.dataset.target)
             },
             onDragEnd: function (e) {
-
-                /* Se comenta la iteración para que el elemento no genere error */
-                /*
-                ref.forEach(item => {
-                    if(item.current.id === target) {
-                        if (!this.hitTest(item.current)) {
-                            TweenLite.to(this.target, 0.2, {x:0, y:0})
-                        } else {
-                           info(elementId)
-                           console.log('Enviando id del elemento : ' + elementId)
+                var count = 0
+                target.map((item, i) => {
+                    const div = document.querySelector('#' + item)
+                    if(div){
+                        if(!this.hitTest(div, '80%')){
+                            count ++
+                        }else{
+                            div.removeAttribute('id')
+                            div.dataset.selected = draggable
+                            setStatus(elementId, 1, item)
                         }
-                        
-                        console.log('Area x:', item.current.offsetLeft, 'Area y: ', item.current.offsetTop)
-                        
-                        return item
+                    }else{
+                        var hidden_div = document.querySelector('[data-target=' + item + ']')
+                        if(draggable === hidden_div.dataset.selected){
+                            hidden_div.setAttribute('id', hidden_div.dataset.target)
+                        }
+                        count ++
                     }
-                }) 
-                */
+                    if(count == target.length){
+                        TweenMax.to(this.target, 0.2, {x:0, y:0})
+                        return false
+                    }
+                })
             }
         })
     } , [areaDrag, target, ref, elementId, info])

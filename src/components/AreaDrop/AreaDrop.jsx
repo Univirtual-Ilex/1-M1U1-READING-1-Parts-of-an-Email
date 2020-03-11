@@ -5,9 +5,9 @@ import styled from 'styled-components'
 import styles,{ areaDrop2styles } from './AreaDrop_styles'
 
 // Componente base
-const AreaDrop_base = React.forwardRef(({title, ...props}, ref) => {
+const AreaDrop_base = React.forwardRef(({title, id, ...props}, ref) => {
     return (
-        <div {...props} ref={ref}>
+        <div {...props} id={id} ref={ref}>
             <h3>{title}</h3>
             <div>
                 {props.children}

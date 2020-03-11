@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef,useState} from 'react'
 //Components
 import Container from '../Container'
 import MainTitle from '../MainTitle'
@@ -15,9 +15,64 @@ import { UiButtonsContainer } from '../Actividad1/Actividad_styles'
 import Ilex from '../../App/variables'
 import {IRow, ICol} from '../Grid'
 
+import Data from './Actividad3_data'
+import Modal from '../Generales/Modal'
 
 // Componente base
 const Actividad3_base = ({staticContext, ...props}) => {
+
+
+    // Refs de las areas
+    const area_0 = useRef()
+    const area_1 = useRef()
+    const area_2 = useRef()
+    const area_3 = useRef()
+    const area_4 = useRef()
+    const area_5 = useRef()
+    const area_6 = useRef()
+    const area_7 = useRef()
+
+
+    const [modalFlag, setModal] = useState(false)
+    const [ok, setOk] = useState(false)
+    const [err, setErr] = useState(false)
+
+
+    const setStatusCheck = (id, status, target) => {
+        var data = Data[id]
+        data.status = status
+
+        if(target){
+            if(data.answer === target){
+                data.right = 1
+            }else{
+                data.right = 0
+            }
+        }else{
+            data.right = 0
+        }
+
+        console.log(Data)
+    }
+
+
+    const checkActivity = () => {
+        var count = 0
+        Data.map((data, i) => {
+            if(data.right === 1){
+                count ++
+            }else{
+                setErr(true)
+                setModal(true)
+            }
+
+            if(count === Data.length){
+                setOk(true)
+                setModal(true)
+            }
+        })
+    }
+
     return (
         <Container bgImage='./src/bg_actividad1.png' {...props} id="area" h={43} w={80}>
             
@@ -35,15 +90,15 @@ const Actividad3_base = ({staticContext, ...props}) => {
             <IRow justify="center" align="center" w={95}>
                 <ICol w={60}>
                     <div className="fondo-correo-2">
-                        <div className="mail-line from bold"> From  <AreaDrop2 className="areaDroppable areaFrom" id="from" /></div>
-                        <div className="mail-line to bold">To <AreaDrop2 className="areaDroppable areaTo" id="to" /></div>
-                        <div className="mail-line cc bold">CC <AreaDrop2 className="areaDroppable areaCc" id="cc" /></div>
-                        <div className="mail-line subject bold">Subject Field <AreaDrop2 className="areaDroppable areaBold" id="subject" /></div>
+                        <div className="mail-line from bold"> From  <AreaDrop2 className="areaDroppable areaFrom" data-selected={''} data-target={'area_0'}   target={'area_0'} id={'area_0'} ref={eval('area_0')} /></div>
+                        <div className="mail-line to bold">To <AreaDrop2 className="areaDroppable areaTo" data-selected={''} data-target={'area_1'}   target={'area_1'} id={'area_1'} ref={eval('area_1')} /></div>
+                        <div className="mail-line cc bold">CC <AreaDrop2 className="areaDroppable areaCc" data-selected={''} data-target={'area_2'}   target={'area_2'} id={'area_2'} ref={eval('area_2')} /></div>
+                        <div className="mail-line subject bold">Subject Field <AreaDrop2 className="areaDroppable areaBold" data-selected={''} data-target={'area_3'}   target={'area_3'} id={'area_3'} ref={eval('area_3')} /></div>
                         <div className="mail-line message">
-                            <AreaDrop2 className="areaDroppable areaMessageline" id="opening" />
-                            <AreaDrop2 className="areaDroppable areaMessage"  id="message" />
-                            <AreaDrop2 className="areaDroppable areaMessageline2"  id="closing" />
-                            <AreaDrop2 className="areaDroppable areaMessageline3" id="footer" />
+                            <AreaDrop2 className="areaDroppable areaMessageline" data-selected={''} data-target={'area_4'}   target={'area_4'} id={'area_4'} ref={eval('area_4')} />
+                            <AreaDrop2 className="areaDroppable areaMessage"  data-selected={''} data-target={'area_5'}   target={'area_5'} id={'area_5'} ref={eval('area_5')} />
+                            <AreaDrop2 className="areaDroppable areaMessageline2"  data-selected={''} data-target={'area_6'}   target={'area_6'} id={'area_6'} ref={eval('area_6')} />
+                            <AreaDrop2 className="areaDroppable areaMessageline3" data-selected={''} data-target={'area_7'}   target={'area_7'} id={'area_7'} ref={eval('area_7')} />
                         </div>
                     </div>
 
@@ -51,17 +106,21 @@ const Actividad3_base = ({staticContext, ...props}) => {
                 <ICol
                 w={40}>
                     <div className="DraggableContainer estilos-correo">
-                        <DraggableItem2><div className="mail-line" dropto="#message"> I am Karla Villegas, we met last Monday in the induction of our program, do you remember me? I received an e-mail from the university, it says I have to take a test next Friday and they sent me  a power point presentation with the information about it, but I do not understand what I have to do.</div></DraggableItem2>
-                        <DraggableItem2> <div className="mail-line" dropto="#opening">Hey there José, how is everything?</div></DraggableItem2>
-                        <DraggableItem2> <div className="mail-line colored link" dropto="#from">karla21@utp.edu.co</div></DraggableItem2>
-                        <DraggableItem2> <div className="mail-line colored link" dropto="#to">jose.velez@utp.edu.co</div></DraggableItem2>
-                        <DraggableItem2> <div className="mail-line" dropto="#footer">
-                            Karla Villegas<br/>
-                            BA student in Physics and Mathematics</div>
-                        </DraggableItem2>
-                        <DraggableItem2> <div className="mail-line colored" dropto="#subject">How to register for the OOP test?</div></DraggableItem2>
-                        <DraggableItem2> <div className="mail-line colored link" dropto="#cc">filipeos@utp.edu.co</div></DraggableItem2>
-                        <DraggableItem2> <div className="mail-line" dropto="#closing">Can you please help me?  I am sending you the presentation Thank you very much for your help</div></DraggableItem2>
+                    {Data.map((data, index) => {
+                        return(
+
+                            <DraggableItem2 key={index}
+                            elementId={index}
+                            setStatus={setStatusCheck} 
+                            draggable={'draggable_' + index} 
+                            idArr={index} 
+                            areaDrag={'#area'} 
+                            target={data.belongsTo}  
+                            ref={[]}>
+                            
+                            <div className="mail-line" dropto="#message">{data.text.replace('<br/>', '\n')}</div></DraggableItem2>
+                        )
+                    })}
                     </div>
                 </ICol>
 
