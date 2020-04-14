@@ -78,7 +78,7 @@ const Actividad2_base = ({staticContext, ...props}) => {
             
             <UiButtonsContainer>
                 <ButtonUi icon='ilx-ayuda' tooltip='drag the corresponding parts of the email to its correct location' />
-                <ButtonUi icon='ilx-volver' tooltip='Start Again' onClick={ () => {window.location.href = '/actividad2'} } />
+                <ButtonUi icon='ilx-volver' tooltip='Start Again' onClick={() => window.location.reload()} />
             </UiButtonsContainer>
 
             <ICol mt={5}>
@@ -135,7 +135,7 @@ const Actividad2_base = ({staticContext, ...props}) => {
 
             </IRow>
 
-            <Modal visible={modalFlag} ok={ok} err={err} w={25} repeatUrl={'/actividad2'} nxtUrl={'/actividad3'} />
+            <Modal visible={modalFlag} ok={ok} err={err} w={25} repeatUrl={'#/actividad2'} nxtUrl={'#/actividad3'} />
             <ICol className="pestanaCheck">
                 <ButtonDown  onClick={checkActivity} className="next" text={'CHECK'}></ButtonDown>
             </ICol>
