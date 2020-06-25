@@ -93,7 +93,6 @@ const styles = css`
     .DraggableContainer{
         margin-left:5em;
         position:relative;
-        height: 31em;
         top:2em;
     }
 

@@ -61,9 +61,6 @@ li{
     .subject{
         top: 12em;
     }
-    .DraggableContainer{
-        height: 31em;
-    }
     .message{
         top:14em;
         max-width:85%;
