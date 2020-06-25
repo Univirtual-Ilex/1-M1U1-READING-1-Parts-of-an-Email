@@ -26,7 +26,7 @@ const Actividad_base = ({staticContext, ...props}) => {
     const [visible6, setVisible6] = useState('')
  
     return (
-        <Container bgImage='./src/bg_actividad1.png' {...props} id="area" h={43} w={80}>
+        <Container bgImage='./src/bg_actividad1.png' {...props} id="area" h={43} w={70}>
             
             <UiButtonsContainer>
                 <ButtonUi icon='ilx-ayuda' tooltip='Drag the mouse over the boxes to read the definition of each part' />

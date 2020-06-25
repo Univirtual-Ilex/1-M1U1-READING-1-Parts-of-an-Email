@@ -73,6 +73,21 @@ const mistyles = css`
     bottom:-1em;
 }
 
+.from{
+    margin-top: 1.2em;
+}
+.to{
+    margin-top: 1.2em;
+}
+.cc{
+    margin-top: 0.6em;
+}
+.subject{
+    margin-top: 0.7em;
+}
+
+
+
 `
 
 export const DraggablesContainer = styled.div`

@@ -18,7 +18,7 @@ const Home_base = function ({ staticContext, ...props}) { // se le pasan las pro
                             <p>
                             Analyze the e-mail and drag the information to the empty format to order the parts of it.
                             </p>
-                            <p className="negrilla">¡Time to practice your reading skill!</p>
+                            <p className="negrilla">Time to practice your reading skill!</p>
                             <ButtonLink to='/actividad1'>Start</ButtonLink>
                         </div>
                     </div>

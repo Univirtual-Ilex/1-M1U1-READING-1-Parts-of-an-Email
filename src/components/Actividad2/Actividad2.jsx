@@ -74,7 +74,7 @@ const Actividad2_base = ({staticContext, ...props}) => {
 
 
     return (
-        <Container bgImage='./src/bg_actividad1.png' {...props} id="area" h={43} w={80}>
+        <Container bgImage='./src/bg_actividad1.png' {...props} id="area" h={43} w={70}>
             
             <UiButtonsContainer>
                 <ButtonUi icon='ilx-ayuda' tooltip='drag the corresponding parts of the email to its correct location' />
